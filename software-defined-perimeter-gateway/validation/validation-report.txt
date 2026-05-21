@@ -1,0 +1,16 @@
+Software-Defined Perimeter Validation Report
+
+Components:
+- NGINX reverse proxy: public gateway on port 80
+- Apache backend: internal application on port 8080
+- oauth2-proxy: identity-aware gateway on port 4180
+- iptables: dynamic network access control
+- enforce_policy.sh: policy automation script
+
+Expected Architecture:
+Client -> NGINX -> oauth2-proxy auth check -> Apache backend
+
+Security Outcome:
+The backend service is no longer directly represented as the public entry point.
+Access is mediated through a reverse proxy and identity-aware authentication layer.
+Dynamic firewall rules can block or allow traffic based on policy.
