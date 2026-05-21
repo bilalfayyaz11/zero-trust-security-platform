@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-05-21T03:52:26.336001Z",
+  "organization": "Example Enterprise",
+  "overall_maturity": "Defined",
+  "maturity_percentage": 52.0,
+  "total_score": 13,
+  "max_score": 25,
+  "pillar_reference": {
+    "least_privilege": "Least Privilege Access",
+    "micro_segmentation": "Micro-Segmentation",
+    "continuous_authentication": "Continuous Authentication",
+    "encryption": "Encryption",
+    "policy_enforcement": "Policy Enforcement"
+  },
+  "asset_results": [
+    {
+      "asset": "Public Web Server",
+      "type": "web_server",
+      "zone": "dmz",
+      "score": 3,
+      "maturity": "Defined",
+      "scorecard": {
+        "least_privilege": false,
+        "micro_segmentation": false,
+        "continuous_authentication": true,
+        "encryption": true,
+        "policy_enforcement": true
+      }
+    },
+    {
+      "asset": "Customer Database",
+      "type": "database",
+      "zone": "private",
+      "score": 4,
+      "maturity": "Managed",
+      "scorecard": {
+        "least_privilege": true,
+        "micro_segmentation": true,
+        "continuous_authentication": true,
+        "encryption": true,
+        "policy_enforcement": false
+      }
+    },
+    {
+      "asset": "Employee Workstations",
+      "type": "endpoint",
+      "zone": "trusted_user_zone",
+      "score": 1,
+      "maturity": "Initial",
+      "scorecard": {
+        "least_privilege": false,
+        "micro_segmentation": false,
+        "continuous_authentication": false,
+        "encryption": true,
+        "policy_enforcement": false
+      }
+    },
+    {
+      "asset": "Identity Provider",
+      "type": "authentication_system",
+      "zone": "private",
+      "score": 3,
+      "maturity": "Defined",
+      "scorecard": {
+        "least_privilege": false,
+        "micro_segmentation": false,
+        "continuous_authentication": true,
+        "encryption": true,
+        "policy_enforcement": true
+      }
+    },
+    {
+      "asset": "Internal API Service",
+      "type": "internal_service",
+      "zone": "private",
+      "score": 2,
+      "maturity": "Initial",
+      "scorecard": {
+        "least_privilege": false,
+        "micro_segmentation": true,
+        "continuous_authentication": false,
+        "encryption": true,
+        "policy_enforcement": false
+      }
+    }
+  ]
+}

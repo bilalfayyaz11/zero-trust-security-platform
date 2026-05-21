@@ -1,0 +1,55 @@
+{
+  "organization": "Example Enterprise",
+  "assets": [
+    {
+      "name": "Public Web Server",
+      "type": "web_server",
+      "zone": "dmz",
+      "data_sensitivity": "medium",
+      "users": ["customers", "admins"],
+      "authentication": ["password", "mfa"],
+      "encryption": ["tls_in_transit"],
+      "controls": ["reverse_proxy", "waf", "logging"]
+    },
+    {
+      "name": "Customer Database",
+      "type": "database",
+      "zone": "private",
+      "data_sensitivity": "high",
+      "users": ["backend_service", "db_admins"],
+      "authentication": ["service_account", "mfa"],
+      "encryption": ["tls_in_transit", "encryption_at_rest"],
+      "controls": ["network_segmentation", "least_privilege", "audit_logging"]
+    },
+    {
+      "name": "Employee Workstations",
+      "type": "endpoint",
+      "zone": "trusted_user_zone",
+      "data_sensitivity": "medium",
+      "users": ["employees"],
+      "authentication": ["password"],
+      "encryption": ["disk_encryption"],
+      "controls": ["endpoint_protection"]
+    },
+    {
+      "name": "Identity Provider",
+      "type": "authentication_system",
+      "zone": "private",
+      "data_sensitivity": "critical",
+      "users": ["all_users", "security_admins"],
+      "authentication": ["mfa", "conditional_access"],
+      "encryption": ["tls_in_transit", "encryption_at_rest"],
+      "controls": ["centralized_identity", "policy_enforcement", "audit_logging"]
+    },
+    {
+      "name": "Internal API Service",
+      "type": "internal_service",
+      "zone": "private",
+      "data_sensitivity": "high",
+      "users": ["backend_service", "developers"],
+      "authentication": ["service_token"],
+      "encryption": ["tls_in_transit"],
+      "controls": ["network_segmentation", "logging"]
+    }
+  ]
+}

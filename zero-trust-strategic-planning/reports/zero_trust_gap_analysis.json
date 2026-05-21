@@ -1,0 +1,122 @@
+{
+  "generated_at": "2026-05-21T03:53:59.831641Z",
+  "organization": "Example Enterprise",
+  "overall_maturity": "Defined",
+  "summary": [
+    {
+      "asset": "Public Web Server",
+      "maturity": "Defined",
+      "risk_level": "Medium",
+      "gap_count": 2
+    },
+    {
+      "asset": "Customer Database",
+      "maturity": "Managed",
+      "risk_level": "Low",
+      "gap_count": 1
+    },
+    {
+      "asset": "Employee Workstations",
+      "maturity": "Initial",
+      "risk_level": "High",
+      "gap_count": 4
+    },
+    {
+      "asset": "Identity Provider",
+      "maturity": "Defined",
+      "risk_level": "Medium",
+      "gap_count": 2
+    },
+    {
+      "asset": "Internal API Service",
+      "maturity": "Initial",
+      "risk_level": "Medium",
+      "gap_count": 3
+    }
+  ],
+  "detailed_findings": [
+    {
+      "asset": "Public Web Server",
+      "maturity": "Defined",
+      "gap_count": 2,
+      "gaps": [
+        {
+          "pillar": "least_privilege",
+          "recommendation": "Implement role-based access control and least privilege policies."
+        },
+        {
+          "pillar": "micro_segmentation",
+          "recommendation": "Segment sensitive systems into isolated security zones."
+        }
+      ]
+    },
+    {
+      "asset": "Customer Database",
+      "maturity": "Managed",
+      "gap_count": 1,
+      "gaps": [
+        {
+          "pillar": "policy_enforcement",
+          "recommendation": "Deploy automated policy enforcement using proxies, firewalls, and centralized identity systems."
+        }
+      ]
+    },
+    {
+      "asset": "Employee Workstations",
+      "maturity": "Initial",
+      "gap_count": 4,
+      "gaps": [
+        {
+          "pillar": "least_privilege",
+          "recommendation": "Implement role-based access control and least privilege policies."
+        },
+        {
+          "pillar": "micro_segmentation",
+          "recommendation": "Segment sensitive systems into isolated security zones."
+        },
+        {
+          "pillar": "continuous_authentication",
+          "recommendation": "Deploy MFA and conditional access validation."
+        },
+        {
+          "pillar": "policy_enforcement",
+          "recommendation": "Deploy automated policy enforcement using proxies, firewalls, and centralized identity systems."
+        }
+      ]
+    },
+    {
+      "asset": "Identity Provider",
+      "maturity": "Defined",
+      "gap_count": 2,
+      "gaps": [
+        {
+          "pillar": "least_privilege",
+          "recommendation": "Implement role-based access control and least privilege policies."
+        },
+        {
+          "pillar": "micro_segmentation",
+          "recommendation": "Segment sensitive systems into isolated security zones."
+        }
+      ]
+    },
+    {
+      "asset": "Internal API Service",
+      "maturity": "Initial",
+      "gap_count": 3,
+      "gaps": [
+        {
+          "pillar": "least_privilege",
+          "recommendation": "Implement role-based access control and least privilege policies."
+        },
+        {
+          "pillar": "continuous_authentication",
+          "recommendation": "Deploy MFA and conditional access validation."
+        },
+        {
+          "pillar": "policy_enforcement",
+          "recommendation": "Deploy automated policy enforcement using proxies, firewalls, and centralized identity systems."
+        }
+      ]
+    }
+  ]
+}
