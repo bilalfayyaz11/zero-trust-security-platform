@@ -1,0 +1,18 @@
+Chain INPUT (policy ACCEPT 22 packets, 2459 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1       44  4587 ACCEPT     0    --  lo     *       0.0.0.0/0            0.0.0.0/0           
+2       19  2456 ACCEPT     0    --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+3        0     0 ACCEPT     0    --  *      *       192.168.1.0/24       0.0.0.0/0           
+4        0     0 ACCEPT     0    --  *      *       192.168.2.0/24       0.0.0.0/0           
+5        0     0 ACCEPT     6    --  *      *       192.168.1.10         0.0.0.0/0            tcp dpt:8080
+6        0     0 REJECT     6    --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 reject-with icmp-port-unreachable
+7        0     0 REJECT     6    --  *      *       192.168.2.0/24       0.0.0.0/0            tcp dpt:3306 reject-with icmp-port-unreachable
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1        0     0 ACCEPT     0    --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+2        0     0 REJECT     0    --  *      *       192.168.1.0/24       192.168.2.0/24       reject-with icmp-port-unreachable
+3        0     0 REJECT     0    --  *      *       192.168.2.0/24       192.168.1.0/24       reject-with icmp-port-unreachable
+
+Chain OUTPUT (policy ACCEPT 73 packets, 7216 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         

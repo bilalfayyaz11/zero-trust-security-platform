@@ -1,0 +1,12 @@
+
+Zero Trust Device Onboarding Report
+
+User: ztuser
+
+Status:
+- Linux account provisioned
+- Ready for MFA enrollment
+- SSH PAM authentication compatible
+
+Security Note:
+Interactive MFA secret generation should be completed securely by the end-user.

@@ -1,0 +1,22 @@
+Chain INPUT (policy ACCEPT 114 packets, 7530 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1      242 29703 ACCEPT     0    --  lo     *       0.0.0.0/0            0.0.0.0/0           
+2     1254  236K ACCEPT     0    --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+3        0     0 ACCEPT     0    --  *      *       192.168.1.0/24       0.0.0.0/0           
+4        0     0 ACCEPT     0    --  *      *       192.168.2.0/24       0.0.0.0/0           
+5        0     0 ACCEPT     6    --  *      *       192.168.1.10         0.0.0.0/0            tcp dpt:8080
+6        0     0 REJECT     6    --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:8080 reject-with icmp-port-unreachable
+7        0     0 REJECT     6    --  *      *       192.168.2.0/24       0.0.0.0/0            tcp dpt:3306 reject-with icmp-port-unreachable
+8        0     0 REJECT     0    --  *      *       192.168.1.100        0.0.0.0/0            reject-with icmp-port-unreachable
+9        0     0 ACCEPT     0    --  *      *       192.168.2.100        0.0.0.0/0           
+10       0     0 REJECT     0    --  *      *       192.168.1.100        0.0.0.0/0            reject-with icmp-port-unreachable
+11       0     0 ACCEPT     0    --  *      *       192.168.2.100        0.0.0.0/0           
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1        0     0 ACCEPT     0    --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+2        0     0 REJECT     0    --  *      *       192.168.1.0/24       192.168.2.0/24       reject-with icmp-port-unreachable
+3        0     0 REJECT     0    --  *      *       192.168.2.0/24       192.168.1.0/24       reject-with icmp-port-unreachable
+
+Chain OUTPUT (policy ACCEPT 1632 packets, 403K bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
