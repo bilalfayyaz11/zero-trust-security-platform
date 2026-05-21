@@ -1,0 +1,11 @@
+MitM / TLS Validation Notes
+
+Expected secure behavior:
+- HTTPS traffic is encrypted using TLS.
+- A proxy cannot read plaintext HTTPS traffic unless its CA certificate is trusted by the client.
+- Self-signed certificates trigger browser/client warnings because they are not publicly trusted.
+- This validates that encryption is active, but certificate trust must be managed carefully in production.
+
+Lab conclusion:
+The SDP gateway protects data in transit through TLS encryption.
+MitM interception without trusted CA installation should not reveal plaintext application data.

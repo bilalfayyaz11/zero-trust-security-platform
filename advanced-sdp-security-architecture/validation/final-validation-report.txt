@@ -1,0 +1,21 @@
+Advanced SDP Security Validation Report
+
+Implemented Controls:
+- MFA-ready SSH authentication using PAM Google Authenticator
+- TLS encryption for NGINX reverse proxy traffic
+- Apache backend isolated behind NGINX on port 8080
+- Network monitoring with iftop
+- Failed SSH login detection with auth.log / journalctl fallback
+- Controlled brute-force simulation using Hydra
+- TLS / MitM validation notes
+
+Architecture:
+Client -> HTTPS NGINX Gateway -> Apache Backend
+
+Security Outcomes:
+- Port 80 redirects to HTTPS on port 443.
+- Backend service runs separately on port 8080.
+- SSH authentication is MFA-ready.
+- Failed SSH attempts are detectable.
+- TLS protects data in transit.
+- MitM plaintext interception is not possible without trusted proxy CA installation.
