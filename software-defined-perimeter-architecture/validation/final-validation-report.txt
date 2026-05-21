@@ -1,0 +1,26 @@
+Software-Defined Perimeter Architecture Validation Report
+
+Implemented SDP Components:
+- Controller: NGINX reverse proxy with authentication
+- Broker: Flask coordination service
+- Enforcement Point: iptables firewall policies
+- Backend Service: Apache isolated behind controller
+
+Security Controls:
+- HTTP Basic Authentication at controller layer
+- Dynamic policy enforcement with Python
+- Persistent firewall policy logging
+- Communication flow monitoring
+- SSH brute-force visibility
+- Controlled HTTP request pressure testing
+
+Architecture Flow:
+Client -> SDP Controller (NGINX) -> Broker (Flask) -> Backend (Apache)
+
+Security Outcomes:
+- Unauthenticated backend access is denied.
+- Authenticated traffic is proxied securely.
+- Enforcement policies are dynamically manageable.
+- Logs provide visibility into communication flows.
+- Firewall logging supports enforcement auditing.
+- Controlled attack simulations generate observable security telemetry.
